@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
+using System.Web.Http;
 
 namespace TaskManager.DataAccessLayer
 {
@@ -24,11 +24,13 @@ namespace TaskManager.DataAccessLayer
                 return dbContext.Task_table.Find(_id);
             }
         }
+        [HttpPost]
         public void CreateTask(Task_table task)
         {
             using (TaskManagerEntities dbContext = new TaskManagerEntities())
             {
                 dbContext.Task_table.Add(task);
+                dbContext.SaveChanges();
             }
         }
         public void UpdateTaskById(int taskId, Task_table task)

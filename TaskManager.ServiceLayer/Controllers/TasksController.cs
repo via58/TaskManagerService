@@ -15,8 +15,8 @@ namespace TaskManager.ServiceLayer.Controllers
     {
 
 
-        //api/tasks/taskid
-       
+        [Route("Task/{taskId}")]
+        [HttpGet]
         public IHttpActionResult GetTask(int taskId)
         {
             try
@@ -31,6 +31,8 @@ namespace TaskManager.ServiceLayer.Controllers
             }
         }
         //api/tasks
+        [Route("Task")]
+        [HttpGet]
         public IHttpActionResult GetAllTasks()
         {
             try
@@ -44,9 +46,10 @@ namespace TaskManager.ServiceLayer.Controllers
                 throw ex;
             }
         }
-     
 
-       
+
+        [Route("Task")]
+        [HttpPost]
         public IHttpActionResult PostTask(Task_table task)
         {
             try
@@ -60,7 +63,8 @@ namespace TaskManager.ServiceLayer.Controllers
             }
         }
 
-       
+        [Route("Task")]
+        [HttpPut]
         public IHttpActionResult PutTask(int taskId, Task_table task)
         {
             try
@@ -74,7 +78,8 @@ namespace TaskManager.ServiceLayer.Controllers
                 throw ex;
             }
         }
-
+        [Route("Task/{taskId}")]
+        [HttpDelete]
         public IHttpActionResult DeleteTask(int taskId)
         {
             try
